@@ -80,8 +80,85 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="section-padding bg-white dark:bg-slate-900">
-      <div className="container-max">
+    <section id="about" className="section-padding relative bg-white dark:bg-slate-900 overflow-hidden">
+      {/* Enhanced Background */}
+      <div className="absolute inset-0">
+        {/* Animated wave patterns */}
+        <motion.div
+          animate={{
+            x: [0, 100, 0],
+            rotate: [0, 5, -5, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -top-32 -left-32 w-64 h-64 bg-gradient-to-r from-blue-200/40 to-indigo-300/40 rounded-full blur-2xl"
+        />
+        <motion.div
+          animate={{
+            x: [0, -120, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/4 -right-32 w-80 h-80 bg-gradient-to-l from-purple-200/30 to-pink-300/30 rounded-full blur-3xl"
+        />
+        
+        {/* Floating code symbols */}
+        {['{', '}', '<', '>', '/', '*', '+', '='].map((symbol, i) => (
+          <motion.div
+            key={symbol}
+            animate={{
+              y: [0, -30, 0],
+              rotate: [0, 10, -10, 0],
+              opacity: [0.1, 0.3, 0.1],
+            }}
+            transition={{
+              duration: 8 + (i % 4),
+              repeat: Infinity,
+              delay: i * 0.5,
+              ease: "easeInOut"
+            }}
+            className="absolute text-blue-400/20 text-4xl font-mono font-bold"
+            style={{
+              left: `${20 + (i * 9) % 60}%`,
+              top: `${20 + (i * 7) % 60}%`,
+            }}
+          >
+            {symbol}
+          </motion.div>
+        ))}
+        
+        {/* Circuit-like lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-5" viewBox="0 0 1000 1000">
+          <motion.path
+            d="M100,100 L300,100 L300,300 L500,300 L500,500 L700,500 L700,700 L900,700"
+            stroke="rgb(59, 130, 246)"
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="10,5"
+            animate={{ strokeDashoffset: [0, 30] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.path
+            d="M900,100 L700,100 L700,300 L500,300 L500,500 L300,500 L300,700 L100,700"
+            stroke="rgb(147, 197, 253)"
+            strokeWidth="1"
+            fill="none"
+            strokeDasharray="5,10"
+            animate={{ strokeDashoffset: [30, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          />
+        </svg>
+      </div>
+      
+      <div className="container-max relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

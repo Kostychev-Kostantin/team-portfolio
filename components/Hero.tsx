@@ -12,35 +12,127 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Elements */}
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-blue-900/20 dark:to-indigo-900/20" />
       
-      {/* Animated Background Shapes */}
+      {/* Animated Particle Background */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Large floating orbs */}
         <motion.div
           animate={{
-            scale: [1, 1.2, 1],
+            scale: [1, 1.3, 1],
             rotate: [0, 180, 360],
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-r from-blue-400/30 to-purple-500/30 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.4],
+            rotate: [360, 180, 0],
+            x: [0, -80, 0],
+            y: [0, 60, 0],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-gradient-to-r from-indigo-400/30 to-cyan-500/30 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1.2, 1],
+            rotate: [0, 90, 180, 270, 360],
+            x: [0, 150, 0, -100, 0],
+            y: [0, -100, 50, 0, 0],
+          }}
+          transition={{
+            duration: 35,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/3 right-1/4 w-72 h-72 bg-gradient-to-r from-pink-400/25 to-blue-500/25 rounded-full blur-3xl"
+        />
+        
+        {/* Floating geometric shapes */}
+        <motion.div
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.1, 1],
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-16 h-16 border-2 border-blue-300/40 rotate-45"
         />
         <motion.div
           animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
+            rotate: [360, 0],
+            y: [0, -20, 0],
           }}
           transition={{
-            duration: 25,
+            duration: 15,
             repeat: Infinity,
-            ease: "linear"
+            ease: "easeInOut"
           }}
-          className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-to-r from-indigo-400/20 to-cyan-400/20 rounded-full blur-3xl"
+          className="absolute bottom-32 left-1/3 w-12 h-12 bg-gradient-to-br from-cyan-400/30 to-blue-500/30 rounded-full"
         />
+        <motion.div
+          animate={{
+            rotate: [0, 180, 360],
+            x: [0, 30, 0],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/2 right-20 w-8 h-8 border border-purple-400/50 rounded-full"
+        />
+        
+        {/* Animated grid pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-transparent"
+               style={{
+                 backgroundImage: `
+                   linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                   linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+                 `,
+                 backgroundSize: '100px 100px',
+               }} />
+        </div>
+        
+        {/* Sparkle effects */}
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              scale: [0, 1, 0],
+              rotate: [0, 180, 360],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 3 + (i % 3),
+              repeat: Infinity,
+              delay: i * 0.5,
+              ease: "easeInOut"
+            }}
+            className="absolute w-2 h-2 bg-blue-400 rounded-full"
+            style={{
+              left: `${10 + (i * 7) % 80}%`,
+              top: `${15 + (i * 11) % 70}%`,
+            }}
+          />
+        ))}
       </div>
 
       <div className="container-max relative z-10 text-center px-4">

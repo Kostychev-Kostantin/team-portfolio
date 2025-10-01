@@ -76,8 +76,179 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-slate-50 dark:bg-slate-800">
-      <div className="container-max">
+    <section id="contact" className="section-padding relative bg-slate-50 dark:bg-slate-800 overflow-hidden">
+      {/* Beautiful Collaboration Background */}
+      <div className="absolute inset-0">
+        {/* Aurora gradient background */}
+        <div className="absolute inset-0 aurora-bg"></div>
+        
+        {/* Floating collaboration elements */}
+        <motion.div
+          animate={{
+            y: [0, -30, 0],
+            rotate: [0, 10, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-20 left-16 text-blue-400/30 text-6xl"
+        >
+          💬
+        </motion.div>
+        
+        <motion.div
+          animate={{
+            y: [0, 25, 0],
+            rotate: [0, -15, 0],
+            x: [0, 10, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/3 right-20 text-purple-400/30 text-5xl"
+        >
+          📧
+        </motion.div>
+        
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-1/4 left-1/4 text-cyan-400/30 text-4xl"
+        >
+          🌐
+        </motion.div>
+        
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 15, 0],
+            rotate: [0, 5, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-2/3 right-1/3 text-green-400/30 text-4xl"
+        >
+          🤝
+        </motion.div>
+        
+        {/* Connection lines between elements */}
+        <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 800">
+          <motion.path
+            d="M200,200 Q400,100 600,200 T900,300"
+            stroke="rgb(59, 130, 246)"
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="8,4"
+            animate={{ strokeDashoffset: [0, 24] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.path
+            d="M100,400 Q300,300 500,400 T800,500"
+            stroke="rgb(147, 197, 253)"
+            strokeWidth="1"
+            fill="none"
+            strokeDasharray="6,6"
+            animate={{ strokeDashoffset: [24, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.path
+            d="M150,600 Q400,500 650,600 T950,700"
+            stroke="rgb(99, 102, 241)"
+            strokeWidth="1.5"
+            fill="none"
+            strokeDasharray="4,8"
+            animate={{ strokeDashoffset: [0, 36] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          />
+        </svg>
+        
+        {/* Floating particles */}
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-blue-400/40 rounded-full"
+            style={{
+              left: `${10 + (i * 6) % 80}%`,
+              top: `${15 + (i * 7) % 70}%`,
+            }}
+            animate={{
+              y: [0, -50, 0],
+              x: [0, 30, 0],
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0],
+            }}
+            transition={{
+              duration: 6 + (i % 4),
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+        
+        {/* Large gradient orbs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            x: [0, 60, 0],
+            y: [0, -40, 0],
+            rotate: [0, 90, 0],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-purple-500/20 rounded-full blur-2xl"
+        />
+        
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.3],
+            x: [0, -50, 0],
+            y: [0, 30, 0],
+            rotate: [0, -120, 0],
+          }}
+          transition={{
+            duration: 22,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -bottom-32 -left-32 w-80 h-80 bg-gradient-to-r from-indigo-400/15 to-pink-500/15 rounded-full blur-3xl"
+        />
+        
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/3 left-1/2 w-48 h-48 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-xl"
+        />
+      </div>
+      
+      <div className="container-max relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

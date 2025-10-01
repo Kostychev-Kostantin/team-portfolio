@@ -44,20 +44,98 @@ const Footer = () => {
 
   return (
     <footer className="bg-slate-900 text-white relative overflow-hidden">
-      {/* Background Elements */}
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-indigo-900/20" />
+      
+      {/* Starfield Effect */}
       <div className="absolute inset-0">
+        {[...Array(100)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-blue-300 rounded-full"
+            style={{
+              left: `${(i * 7) % 100}%`,
+              top: `${(i * 11) % 100}%`,
+            }}
+            animate={{
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0],
+            }}
+            transition={{
+              duration: 3 + (i % 4),
+              repeat: Infinity,
+              delay: i * 0.05,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+        
+        {/* Shooting stars */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={`shooting-${i}`}
+            className="absolute w-2 h-0.5 bg-gradient-to-r from-blue-400 to-transparent rounded-full"
+            style={{
+              left: `${(i * 20) % 50}%`,
+              top: `${(i * 15) % 50}%`,
+            }}
+            animate={{
+              x: [0, 200],
+              y: [0, 100],
+              opacity: [0, 1, 0],
+              scaleX: [0, 1, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: i * 2,
+              ease: "easeOut"
+            }}
+          />
+        ))}
+        
+        {/* Large cosmic orbs */}
         <motion.div
           animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 90, 0],
+            scale: [1, 1.3, 1],
+            rotate: [0, 180, 360],
+            x: [0, 50, 0],
+            y: [0, -30, 0],
           }}
           transition={{
-            duration: 30,
+            duration: 40,
             repeat: Infinity,
-            ease: "linear"
+            ease: "easeInOut"
           }}
-          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"
+          className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-r from-blue-400/15 to-purple-400/15 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.4],
+            rotate: [360, 180, 0],
+            x: [0, -60, 0],
+            y: [0, 40, 0],
+          }}
+          transition={{
+            duration: 35,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-r from-indigo-400/15 to-cyan-400/15 rounded-full blur-3xl"
+        />
+        
+        {/* Nebula effect */}
+        <motion.div
+          animate={{
+            opacity: [0.1, 0.3, 0.1],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 rounded-full blur-2xl"
         />
       </div>
 

@@ -77,8 +77,295 @@ const CaseStudies = () => {
   ]
 
   return (
-    <section id="projects" className="section-padding bg-slate-50 dark:bg-slate-800">
-      <div className="container-max">
+    <section id="projects" className="section-padding relative bg-slate-50 dark:bg-slate-800 overflow-hidden">
+      {/* Epic Tech Background */}
+      <div className="absolute inset-0">
+        {/* Matrix-style rain effect */}
+        <div className="absolute inset-0 opacity-5">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-blue-500 font-mono text-xs"
+              style={{ left: `${i * 5}%` }}
+              animate={{
+                y: [-100, 1000],
+                opacity: [0, 1, 0],
+              }}
+              transition={{
+                duration: 10 + (i % 10),
+                repeat: Infinity,
+                delay: i * 0.5,
+                ease: "linear"
+              }}
+            >
+              {['01', '10', '11', '00', 'AI', 'ML', 'JS', 'PY', 'TS'][i % 9]}
+            </motion.div>
+          ))}
+        </div>
+        
+        {/* Floating tech icons */}
+        <motion.div
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.1, 1],
+            x: [0, 50, 0],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-20 left-10 w-16 h-16 border-2 border-blue-300/30 rounded-lg flex items-center justify-center text-blue-400/40 text-2xl font-bold"
+        >
+          ⚛️
+        </motion.div>
+        
+        <motion.div
+          animate={{
+            rotate: [360, 0],
+            y: [0, -40, 0],
+            x: [0, -30, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/3 right-16 w-12 h-12 bg-gradient-to-br from-green-400/20 to-blue-500/20 rounded-full flex items-center justify-center text-green-400/60 text-lg"
+        >
+          🐍
+        </motion.div>
+        
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+            x: [0, 80, 0],
+          }}
+          transition={{
+            duration: 35,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-1/4 left-1/4 w-14 h-14 border border-purple-400/30 rounded-full flex items-center justify-center text-purple-400/50 text-xl"
+        >
+          🤖
+        </motion.div>
+        
+        {/* Neural network visualization */}
+        <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 800 600">
+          {/* Nodes */}
+          {[
+            { x: 100, y: 150 }, { x: 200, y: 100 }, { x: 200, y: 200 },
+            { x: 300, y: 50 }, { x: 300, y: 150 }, { x: 300, y: 250 },
+            { x: 400, y: 100 }, { x: 400, y: 200 }, { x: 500, y: 150 }
+          ].map((node, i) => (
+            <motion.circle
+              key={i}
+              cx={node.x}
+              cy={node.y}
+              r="4"
+              fill="rgb(59, 130, 246)"
+              animate={{
+                r: [3, 6, 3],
+                opacity: [0.3, 0.8, 0.3],
+              }}
+              transition={{
+                duration: 2 + Math.random() * 2,
+                repeat: Infinity,
+                delay: i * 0.2,
+              }}
+            />
+          ))}
+          
+          {/* Connections */}
+          <motion.path
+            d="M100,150 L200,100 L300,50 L400,100 L500,150"
+            stroke="rgb(59, 130, 246)"
+            strokeWidth="1"
+            fill="none"
+            strokeDasharray="3,3"
+            animate={{ strokeDashoffset: [0, 12] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.path
+            d="M100,150 L200,200 L300,250 L400,200 L500,150"
+            stroke="rgb(147, 197, 253)"
+            strokeWidth="1"
+            fill="none"
+            strokeDasharray="2,4"
+            animate={{ strokeDashoffset: [12, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          />
+        </svg>
+        
+        {/* Glowing orbs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.3, 0.6, 0.3],
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.3],
+            opacity: [0.2, 0.5, 0.2],
+            x: [0, -80, 0],
+            y: [0, 60, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute -bottom-20 -left-20 w-60 h-60 bg-gradient-to-r from-purple-400/15 to-pink-500/15 rounded-full blur-2xl"
+        />
+        
+        {/* Additional tech elements */}
+        <motion.div
+          animate={{
+            rotate: [0, -360],
+            scale: [1, 1.3, 1],
+            x: [0, -40, 0],
+          }}
+          transition={{
+            duration: 28,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-1/3 right-10 w-20 h-20 border border-green-400/30 rounded-full flex items-center justify-center text-green-400/50 text-3xl"
+        >
+          💾
+        </motion.div>
+        
+        <motion.div
+          animate={{
+            y: [0, -35, 0],
+            rotate: [0, 15, -15, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/2 left-10 text-orange-400/40 text-4xl"
+        >
+          ⚡
+        </motion.div>
+        
+        <motion.div
+          animate={{
+            rotate: [0, 360],
+            x: [0, 60, 0],
+            y: [0, -25, 0],
+          }}
+          transition={{
+            duration: 24,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-3/4 right-1/4 text-purple-400/40 text-3xl"
+        >
+          🔮
+        </motion.div>
+        
+        {/* Data flow visualization */}
+        <svg className="absolute inset-0 w-full h-full opacity-8" viewBox="0 0 1200 800">
+          <motion.path
+            d="M50,400 Q200,200 400,400 Q600,600 800,400 Q1000,200 1150,400"
+            stroke="url(#dataGradient)"
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="12,6"
+            animate={{ strokeDashoffset: [0, 36] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.path
+            d="M1150,100 Q1000,300 800,100 Q600,300 400,100 Q200,300 50,100"
+            stroke="url(#dataGradient2)"
+            strokeWidth="1.5"
+            fill="none"
+            strokeDasharray="8,8"
+            animate={{ strokeDashoffset: [36, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          />
+          <defs>
+            <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgb(59, 130, 246)" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="rgb(147, 51, 234)" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="rgb(236, 72, 153)" stopOpacity="0.3" />
+            </linearGradient>
+            <linearGradient id="dataGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgb(16, 185, 129)" stopOpacity="0.4" />
+              <stop offset="50%" stopColor="rgb(59, 130, 246)" stopOpacity="0.7" />
+              <stop offset="100%" stopColor="rgb(147, 51, 234)" stopOpacity="0.4" />
+            </linearGradient>
+          </defs>
+        </svg>
+        
+        {/* Floating code blocks */}
+        {['function()', 'class {}', 'const =>', 'import', 'export', 'async'].map((code, i) => (
+          <motion.div
+            key={code}
+            animate={{
+              y: [0, -40, 0],
+              rotate: [0, 5, -5, 0],
+              opacity: [0.1, 0.4, 0.1],
+            }}
+            transition={{
+              duration: 10 + (i % 5),
+              repeat: Infinity,
+              delay: i * 1.5,
+              ease: "easeInOut"
+            }}
+            className="absolute text-blue-400/20 text-sm font-mono font-bold px-2 py-1 bg-slate-200/10 rounded"
+            style={{
+              left: `${15 + (i * 12) % 70}%`,
+              top: `${15 + (i * 8) % 70}%`,
+            }}
+          >
+            {code}
+          </motion.div>
+        ))}
+        
+        {/* Pulsing tech rings */}
+        <motion.div
+          animate={{
+            scale: [1, 2, 1],
+            opacity: [0.3, 0, 0.3],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-1/4 left-3/4 w-24 h-24 border-2 border-blue-400/30 rounded-full"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.8, 1],
+            opacity: [0.2, 0, 0.2],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            delay: 1,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-1/3 left-1/5 w-32 h-32 border border-purple-400/25 rounded-full"
+        />
+      </div>
+      
+      <div className="container-max relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
