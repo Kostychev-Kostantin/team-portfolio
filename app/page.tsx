@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
+import InteractiveSkills from '@/components/InteractiveSkills'
+import ProjectEstimator from '@/components/ProjectEstimator'
 import CaseStudies from '@/components/CaseStudies'
 import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
@@ -15,6 +17,8 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
+      <InteractiveSkills />
+      <ProjectEstimator />
       <CaseStudies />
       <Testimonials />
       <Contact />
