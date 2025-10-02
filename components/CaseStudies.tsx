@@ -8,70 +8,73 @@ const CaseStudies = () => {
   const projects = [
     {
       id: 1,
-      title: 'AI-Powered Trading Engine',
-      category: 'FinTech • AI/ML',
-      client: 'US FinTech Startup',
-      description: 'Built an intelligent trading platform that uses machine learning algorithms to analyze market trends and execute automated trades with 94% accuracy.',
-      problem: 'Client needed an automated trading system that could process large volumes of market data and make intelligent trading decisions in real-time.',
-      solution: 'Developed a comprehensive trading engine using Python, TensorFlow, and real-time data processing with Redis and WebSocket connections.',
-      result: 'Achieved 94% prediction accuracy, processed 10,000+ trades daily, and increased client revenue by 340% within 6 months.',
-      techStack: ['Python', 'TensorFlow', 'FastAPI', 'Redis', 'PostgreSQL', 'WebSocket', 'AWS'],
-      image: '/api/placeholder/600/400',
+      title: 'Supercog AI (SCp-AI) - AI Junior Analyst',
+      category: 'AI/ML • Enterprise SaaS',
+      client: 'Investment Management Platform',
+      description: 'Built an enterprise-grade AI agent platform that acts as a virtual team member, automating operational, research, and administrative workflows for investment teams using LLMs and modular backend services.',
+      problem: 'Investment teams spent 70% of their time on repetitive manual tasks like deal triage, CRM data entry, due diligence research, and meeting preparation instead of strategic decision-making.',
+      solution: 'Developed a comprehensive AI agent platform using FastAPI, LangChain, and GPT-4 with microservices architecture, real-time streaming via Redis, and enterprise integrations (Salesforce, HubSpot, Slack).',
+      result: 'Automated 85% of routine analyst tasks, reduced deal processing time from hours to minutes, and enabled teams to focus on high-value strategic decisions with 94% accuracy in data extraction.',
+      techStack: ['Python', 'FastAPI', 'LangChain', 'GPT-4', 'PostgreSQL', 'pgvector', 'Redis', 'MinIO', 'Docker', 'Reflex.dev'],
+      image: '/project-1.png',
+      liveUrl: 'https://supercog.ai/',
       metrics: [
-        { label: 'Accuracy', value: '94%', icon: TrendingUp },
-        { label: 'Daily Trades', value: '10K+', icon: Zap },
-        { label: 'Revenue Increase', value: '340%', icon: TrendingUp },
+        { label: 'Task Automation', value: '85%', icon: Zap },
+        { label: 'Processing Speed', value: '90x', icon: TrendingUp },
+        { label: 'Data Accuracy', value: '94%', icon: TrendingUp },
       ],
     },
     {
       id: 2,
-      title: 'E-Commerce Platform',
-      category: 'Full-Stack • E-Commerce',
-      client: 'European Retail Company',
-      description: 'Developed a modern, scalable e-commerce platform with advanced inventory management, payment processing, and analytics dashboard.',
-      problem: 'Legacy e-commerce system was slow, couldn\'t handle traffic spikes, and lacked modern features like real-time inventory tracking.',
-      solution: 'Built a new platform using Next.js, Node.js, and microservices architecture with automated scaling and comprehensive admin dashboard.',
-      result: 'Improved page load times by 75%, handled 500% more concurrent users, and increased conversion rates by 45%.',
-      techStack: ['Next.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'AWS', 'Docker'],
-      image: '/api/placeholder/600/400',
+      title: 'Compliance Audit Copilot',
+      category: 'AI/ML • Healthcare Compliance',
+      client: 'Pharmaceutical Company (Confidential)',
+      description: 'Built an AI-powered compliance audit review system for clinical trial documents that automates regulatory violation detection and suggests corrections using advanced NLP and GPT-4 integration.',
+      problem: 'Compliance officers spent weeks manually reviewing clinical trial documents against complex regulatory standards (ICH, FDA guidelines), leading to delays in drug approvals and potential compliance violations.',
+      solution: 'Developed a sophisticated AI pipeline using FastAPI, GPT-4, and semantic embeddings with intelligent document chunking, two-phase analysis approach, and collaborative review workflow with exact position tracking.',
+      result: 'Reduced compliance review time by 80%, achieved 95% accuracy in violation detection, and enabled faster regulatory submissions while maintaining comprehensive audit trails for pharmaceutical compliance.',
+      techStack: ['Python', 'FastAPI', 'GPT-4', 'OpenAI Embeddings', 'PostgreSQL', 'React', 'TypeScript', 'Tailwind CSS', 'Docker', 'GCP'],
+      image: '/project-2.png',
       metrics: [
-        { label: 'Load Time Improvement', value: '75%', icon: Zap },
-        { label: 'Concurrent Users', value: '500%', icon: Users },
-        { label: 'Conversion Rate', value: '+45%', icon: TrendingUp },
+        { label: 'Review Time Reduction', value: '80%', icon: Zap },
+        { label: 'Detection Accuracy', value: '95%', icon: TrendingUp },
+        { label: 'Processing Speed', value: '50x', icon: Zap },
       ],
     },
     {
       id: 3,
-      title: 'Healthcare Data Analytics',
-      category: 'AI/ML • Healthcare',
-      client: 'Medical Research Institute',
-      description: 'Created an advanced analytics platform for processing medical data, identifying patterns, and generating predictive insights for patient care.',
-      problem: 'Manual analysis of patient data was time-consuming and prone to human error, limiting the ability to identify critical health patterns.',
-      solution: 'Implemented machine learning models for pattern recognition, automated data processing pipelines, and interactive dashboards for medical staff.',
-      result: 'Reduced analysis time by 85%, improved diagnostic accuracy by 32%, and enabled early detection of health risks for 2,000+ patients.',
-      techStack: ['Python', 'Pandas', 'Scikit-learn', 'React', 'D3.js', 'PostgreSQL', 'Docker'],
-      image: '/api/placeholder/600/400',
+      title: 'NeuroTrader: The Construct™',
+      category: 'AI/ML • FinTech Trading',
+      client: 'Autonomous Trading Platform (In Development)',
+      description: 'Built an AI-powered autonomous trading engine using reinforcement learning agents with risk-first framework for cryptocurrency markets, featuring real-time execution, monitoring dashboard, and comprehensive safety controls.',
+      problem: 'Traditional trading requires constant human monitoring and is prone to emotional decisions, while existing automated systems lack sophisticated AI decision-making and proper risk management integration.',
+      solution: 'Developed a modular AI trading system combining reinforcement learning agents, real-time signal processing, strict risk management, and live market data integration with comprehensive monitoring and emergency controls.',
+      result: 'Created a fully autonomous trading prototype with disciplined AI decision-making, real-time execution capabilities, and comprehensive safety controls, currently running successful paper trading simulations.',
+      techStack: ['Python', 'Reinforcement Learning', 'TensorFlow', 'Real-time APIs', 'WebSocket', 'React', 'Next.js', 'PostgreSQL', 'Docker'],
+      image: '/project-3.png',
+      // liveUrl: 'https://neurotrader.vercel.app/',
       metrics: [
-        { label: 'Analysis Time Reduction', value: '85%', icon: Zap },
-        { label: 'Diagnostic Accuracy', value: '+32%', icon: TrendingUp },
-        { label: 'Patients Analyzed', value: '2K+', icon: Users },
+        { label: 'AI Decision Speed', value: '<1s', icon: Zap },
+        { label: 'Risk Controls', value: '100%', icon: TrendingUp },
+        { label: 'Market Coverage', value: '24/7', icon: Zap },
       ],
     },
     {
       id: 4,
-      title: 'Real-Time Collaboration Tool',
-      category: 'Full-Stack • SaaS',
-      client: 'Remote Work Platform',
-      description: 'Built a comprehensive collaboration platform with real-time editing, video conferencing, and project management features.',
-      problem: 'Team needed a unified platform for remote collaboration that could handle real-time document editing and seamless communication.',
-      solution: 'Developed a full-featured SaaS platform with WebRTC for video calls, operational transformation for real-time editing, and comprehensive project management.',
-      result: 'Supported 50,000+ active users, achieved 99.9% uptime, and reduced team communication overhead by 60%.',
-      techStack: ['React', 'Node.js', 'Socket.io', 'WebRTC', 'MongoDB', 'Redis', 'Kubernetes'],
-      image: '/api/placeholder/600/400',
+      title: 'Taskade – Real-Time Collaboration Platform',
+      category: 'Full-Stack • SaaS Platform',
+      client: 'Distributed Teams Workspace',
+      description: 'Built a comprehensive real-time collaboration platform combining multiplayer document editing, integrated video conferencing, and project management features into a unified workspace for distributed teams.',
+      problem: 'Remote teams relied on multiple disconnected tools for chat, task management, and document editing, creating context switching, productivity loss, and communication gaps between team members.',
+      solution: 'Developed an all-in-one workspace with real-time multiplayer editing, WebRTC-powered video/voice communication, flexible project management views (lists, boards, calendars), and cross-platform synchronization.',
+      result: 'Reduced tool overhead by 50% for remote teams, achieved 99.9% uptime, and successfully scaled to support thousands of simultaneous users in real-time collaborative sessions.',
+      techStack: ['React', 'Node.js', 'WebRTC', 'Socket.io', 'MongoDB', 'Redis', 'TypeScript', 'Docker', 'Kubernetes', 'WebSocket'],
+      image: '/project-4.png',
+      liveUrl: 'https://www.taskade.com/',
       metrics: [
-        { label: 'Active Users', value: '50K+', icon: Users },
-        { label: 'Uptime', value: '99.9%', icon: Zap },
-        { label: 'Efficiency Gain', value: '60%', icon: TrendingUp },
+        { label: 'Tool Overhead Reduction', value: '50%', icon: Zap },
+        { label: 'System Uptime', value: '99.9%', icon: TrendingUp },
+        { label: 'Concurrent Users', value: '1000+', icon: Users },
       ],
     },
   ]
@@ -403,13 +406,14 @@ const CaseStudies = () => {
                   transition={{ duration: 0.3 }}
                   className="relative rounded-2xl overflow-hidden shadow-2xl group"
                 >
-                  <div className="aspect-video bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/20 dark:to-accent-900/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                        <span className="text-white font-bold text-lg">{project.id}</span>
-                      </div>
-                      <p className="text-slate-600 dark:text-slate-400">Project Screenshot</p>
-                    </div>
+                  <div className="aspect-video bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/20 dark:to-accent-900/20 flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
@@ -481,6 +485,23 @@ const CaseStudies = () => {
                     ))}
                   </div>
                 </div>
+
+                {/* Live Project Link */}
+                {project.liveUrl && (
+                  <div>
+                    <motion.a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      <span>View Live Project</span>
+                    </motion.a>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

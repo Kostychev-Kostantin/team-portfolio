@@ -164,11 +164,11 @@ const Footer = () => {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2 text-sm text-slate-400">
                   <Mail className="w-4 h-4" />
-                  <span>team@kazakhdev.pro</span>
+                  <span>kostychev0902@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-slate-400">
                   <MessageCircle className="w-4 h-4" />
-                  <span>+7 (XXX) XXX-XXXX</span>
+                  <span>+1(762) 920-7702</span>
                 </div>
               </div>
             </motion.div>

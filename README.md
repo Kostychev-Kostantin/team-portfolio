@@ -139,8 +139,8 @@ The portfolio includes comprehensive SEO optimization:
 
 Update the following contact details throughout the codebase:
 
-- Email: `team@kazakhdev.pro`
-- Phone: `+7 (XXX) XXX-XXXX`
+- Email: `kostychev0902@gmail.com`
+- Phone: `+1(762) 920-7702`
 - Social links in `components/Footer.tsx`
 
 ## 🚀 Deployment
@@ -169,7 +169,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📧 Support
 
-For support or questions, contact us at team@kazakhdev.pro
+For support or questions, contact us at kostychev0902@gmail.com
 
 ---
 

@@ -32,14 +32,14 @@ const Contact = () => {
       icon: Mail,
       title: 'Email Us',
       description: 'Get in touch via email',
-      value: 'team@kazakhdev.pro',
-      link: 'mailto:team@kazakhdev.pro',
+      value: 'kostychev0902@gmail.com',
+      link: 'mailto:kostychev0902@gmail.com',
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp/Telegram',
       description: 'Quick messaging',
-      value: '+7 (XXX) XXX-XXXX',
+      value: '+1(762) 920-7702',
       link: 'https://wa.me/XXXXXXXXXX',
     },
     {
@@ -47,7 +47,7 @@ const Contact = () => {
       title: 'Schedule a Call',
       description: 'Book a consultation',
       value: 'calendly.com/kazakhdev',
-      link: 'https://calendly.com/kazakhdev',
+      link: 'https://calendly.com/kostychev0902/30min',
     },
   ]
 
@@ -476,7 +476,7 @@ const Contact = () => {
                     <span>Telegram</span>
                   </motion.a>
                   <motion.a
-                    href="https://calendly.com/kazakhdev"
+                    href="https://calendly.com/kostychev0902/30min"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center space-x-2 bg-purple-500 text-white px-3 py-2 rounded-lg text-xs font-medium hover:bg-purple-600 transition-colors"
@@ -704,7 +704,7 @@ const Contact = () => {
             </motion.a>
             <motion.button
               onClick={() => {
-                const email = 'team@kazakhdev.pro'
+                const email = 'kostychev0902@gmail.com'
                 const subject = 'Project Inquiry from Portfolio'
                 const body = 'Hi Kazakhstan Dev Team,\n\nI visited your portfolio and I\'m interested in discussing a project. Could we schedule a call?\n\nBest regards,'
                 window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
@@ -781,8 +781,8 @@ const Contact = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500 dark:text-slate-400">
             <span>🕐 Available Mon-Fri 9AM-6PM (GMT+6)</span>
-            <span>📧 team@kazakhdev.pro</span>
-            <span>📞 +7 (XXX) XXX-XXXX</span>
+            <span>📧 kostychev0902@gmail.com</span>
+            <span>📞 +1(762) 920-7702</span>
           </div>
         </motion.div>
       </div>

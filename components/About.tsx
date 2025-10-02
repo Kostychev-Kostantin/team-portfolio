@@ -2,35 +2,36 @@
 
 import { motion } from 'framer-motion'
 import { Code2, Brain, Database, Globe, Award, Clock } from 'lucide-react'
+import Image from 'next/image'
 
 const About = () => {
   const teamMembers = [
     {
-      name: 'Team Lead',
-      role: 'Senior Full-Stack Developer',
-      experience: '8+ years',
-      skills: ['React', 'Next.js', 'Node.js', 'Python', 'AWS'],
-      description: 'Passionate about creating scalable web applications and leading development teams to deliver exceptional results.',
+      name: 'Kostychev Konstantin',
+      role: 'Senior Full Stack & AI/ML Developer',
+      experience: '10+ years',
+      skills: ['Python', 'Golang', 'React', 'Next.js', 'TensorFlow', 'PyTorch', 'AWS'],
+      description: 'Innovative and results-driven developer with expertise in AI/ML, microservices architecture, and scalable web applications across FinTech, AI, Blockchain, and Cloud platforms.',
     },
     {
-      name: 'AI/ML Specialist',
-      role: 'Senior AI/ML Engineer',
-      experience: '6+ years',
-      skills: ['Python', 'TensorFlow', 'PyTorch', 'NLP', 'Computer Vision'],
-      description: 'Expert in machine learning algorithms, deep learning, and building intelligent systems that solve real-world problems.',
+      name: 'Sergey Bogdanovich',
+      role: 'Senior AI/ML Developer',
+      experience: '11+ years',
+      skills: ['TensorFlow', 'PyTorch', 'OpenAI GPT', 'Python', 'JavaScript', 'TypeScript', 'React'],
+      description: 'AI/ML developer with expertise in AI/ML-driven applications, specializing in integrating intelligent solutions for predictive analytics, recommendation systems, and fraud detection into scalable web applications.',
     },
     {
-      name: 'Backend Engineer',
+      name: 'Rinat Galiyev',
       role: 'Senior Backend Developer',
       experience: '7+ years',
-      skills: ['Python', 'PostgreSQL', 'Redis', 'Docker', 'Microservices'],
+      skills: ['Python', 'Golang', 'PostgreSQL', 'Redis', 'Docker', 'Microservices'],
       description: 'Specializes in building robust, scalable backend systems and optimizing database performance for high-traffic applications.',
     },
     {
-      name: 'Frontend Expert',
+      name: 'Vladislav Sayenko',
       role: 'Senior Frontend Developer',
       experience: '5+ years',
-      skills: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js', 'Vue.js'],
+      skills: ['React', 'TypeScript', 'WebRTC', 'D3.js', 'Tailwind CSS', 'Next.js'],
       description: 'Creates beautiful, responsive user interfaces with focus on performance and exceptional user experience.',
     },
   ]
@@ -39,22 +40,22 @@ const About = () => {
     {
       icon: Code2,
       title: 'Full-Stack Development',
-      description: 'End-to-end web application development using modern technologies like React, Next.js, Node.js, and Python.',
+      description: 'End-to-end development with React, Next.js, FastAPI, Node.js, TypeScript, and modern cloud architectures.',
     },
     {
       icon: Brain,
       title: 'AI/ML Solutions',
-      description: 'Custom machine learning models, data analysis, natural language processing, and computer vision applications.',
+      description: 'Advanced AI systems using GPT-4, LangChain, TensorFlow, PyTorch, Reinforcement Learning, and Computer Vision.',
     },
     {
       icon: Database,
       title: 'Backend Architecture',
-      description: 'Scalable backend systems, APIs, microservices, and database optimization for high-performance applications.',
+      description: 'Scalable systems with Python, Golang, microservices, PostgreSQL, Redis, and enterprise-grade security.',
     },
     {
       icon: Globe,
       title: 'Cloud & DevOps',
-      description: 'AWS cloud infrastructure, containerization with Docker, CI/CD pipelines, and automated deployment strategies.',
+      description: 'AWS infrastructure, Kubernetes, Docker, Terraform, CI/CD pipelines, and automated monitoring solutions.',
     },
   ]
 
@@ -194,22 +195,47 @@ const About = () => {
               viewport={{ once: true }}
               className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 hover:shadow-xl transition-all duration-300 group"
             >
-              <div className="flex items-start space-x-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white font-bold text-lg">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
+              <div className="flex items-start space-x-6">
+                {/* Photo placeholder */}
+                <div className="flex-shrink-0">
+                  {member.name === 'Kostychev Konstantin' ? (
+                    <div className="w-20 h-20 rounded-xl overflow-hidden shadow-lg group-hover:scale-105 transition-transform duration-300">
+                      <Image
+                        src="/kostychev.jpg"
+                        alt="Kostychev Konstantin"
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg">
+                      <span className="text-white font-bold text-xl">
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                  )}
                 </div>
-                <div className="flex-1">
+                
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  {/* Name first */}
                   <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-1">
-                    {member.role}
+                    {member.name}
                   </h3>
-                  <p className="text-primary-600 dark:text-primary-400 font-medium mb-2">
+                  {/* Role second */}
+                  <h4 className="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-1">
+                    {member.role}
+                  </h4>
+                  {/* Experience */}
+                  <p className="text-slate-500 dark:text-slate-400 font-medium text-sm mb-3">
                     {member.experience} experience
                   </p>
+                  {/* Description */}
                   <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">
                     {member.description}
                   </p>
+                  {/* Skills */}
                   <div className="flex flex-wrap gap-2">
                     {member.skills.map((skill) => (
                       <span

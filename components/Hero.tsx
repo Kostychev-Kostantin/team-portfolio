@@ -180,7 +180,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-wrap justify-center gap-3 mb-10"
         >
-          {['React', 'Next.js', 'Python', 'TypeScript', 'AI/ML', 'AWS', 'Node.js', 'PostgreSQL'].map((tech, index) => (
+          {['Python', 'FastAPI', 'GPT-4', 'LangChain', 'React', 'Next.js', 'Node.js', 'Golang', 'Angular', 'C#', 'C++', 'Java', 'TypeScript', 'TensorFlow', 'PostgreSQL', 'Docker', 'WebRTC', 'PyTorch', 'AWS'].map((tech, index) => (
             <motion.span
               key={tech}
               initial={{ opacity: 0, scale: 0.8 }}
