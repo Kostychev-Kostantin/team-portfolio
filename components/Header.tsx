@@ -17,12 +17,13 @@ const Header = () => {
   }, [])
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Estimator', href: '#estimator' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '#about', icon: null },
+    { name: 'Skills', href: '#skills', icon: null },
+    { name: 'Projects', href: '#projects', icon: null },
+    { name: 'Testimonials', href: '#testimonials', icon: null },
+    { name: '🧠 IQ Game', href: '#iq-game', icon: null, special: 'game' },
+    { name: '💡 Estimator', href: '#estimator', icon: null, special: 'tool' },
+    { name: 'Contact', href: '#contact', icon: null },
   ]
 
   return (
@@ -60,7 +61,13 @@ const Header = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className="text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium"
+                className={`transition-all duration-300 font-medium ${
+                  item.special === 'game' 
+                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25' 
+                    : item.special === 'tool'
+                    ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-2 rounded-full hover:from-blue-600 hover:to-cyan-600 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25'
+                    : 'text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400'
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
@@ -96,7 +103,13 @@ const Header = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="block px-6 py-3 text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300"
+                className={`block mx-4 my-2 transition-all duration-300 ${
+                  item.special === 'game' 
+                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-3 rounded-full hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 shadow-lg text-center font-medium' 
+                    : item.special === 'tool'
+                    ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-3 rounded-full hover:from-blue-600 hover:to-cyan-600 transform hover:scale-105 shadow-lg text-center font-medium'
+                    : 'px-6 py-3 text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-lg'
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}

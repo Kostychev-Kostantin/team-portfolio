@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import InteractiveSkills from '@/components/InteractiveSkills'
+import IQTestGame from '@/components/IQTestGame'
 import ProjectEstimator from '@/components/ProjectEstimator'
 import CaseStudies from '@/components/CaseStudies'
 import Testimonials from '@/components/Testimonials'
@@ -18,9 +19,10 @@ export default function Home() {
       <Hero />
       <About />
       <InteractiveSkills />
-      <ProjectEstimator />
       <CaseStudies />
       <Testimonials />
+      <IQTestGame />
+      <ProjectEstimator />
       <Contact />
       <Footer />
     </main>

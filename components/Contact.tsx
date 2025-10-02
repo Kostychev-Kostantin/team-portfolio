@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, MessageCircle, Calendar, MapPin, Phone, Send, Clock, Globe } from 'lucide-react'
+import { Mail, MessageCircle, Calendar, MapPin, Phone, Send, Clock, Globe, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 
 const Contact = () => {
@@ -392,6 +392,126 @@ const Contact = () => {
                 <span>Send Message</span>
               </motion.button>
             </form>
+
+            {/* Additional Content Below Form */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="mt-8 space-y-6"
+            >
+              {/* Quick Response Promise */}
+              <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg p-4 border border-green-200 dark:border-green-700">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                    <Clock className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-sm">
+                      ⚡ Quick Response Guaranteed
+                    </h4>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                      We'll get back to you within 4 hours during business hours
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* What Happens Next */}
+              <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4">
+                <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-3 text-sm">
+                  🎯 What happens next?
+                </h4>
+                <div className="space-y-2">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center mt-0.5">
+                      <span className="text-white text-xs font-bold">1</span>
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                      We review your project details and requirements
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center mt-0.5">
+                      <span className="text-white text-xs font-bold">2</span>
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                      Schedule a free 30-minute consultation call
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                      <span className="text-white text-xs font-bold">3</span>
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                      Receive detailed proposal with timeline & pricing
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Alternative Contact Methods */}
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-4">
+                <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-3 text-sm">
+                  💬 Prefer instant messaging?
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  <motion.a
+                    href="https://wa.me/XXXXXXXXXX"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center space-x-2 bg-green-500 text-white px-3 py-2 rounded-lg text-xs font-medium hover:bg-green-600 transition-colors"
+                  >
+                    <span>📱</span>
+                    <span>WhatsApp</span>
+                  </motion.a>
+                  <motion.a
+                    href="https://t.me/kazakhdev"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center space-x-2 bg-blue-500 text-white px-3 py-2 rounded-lg text-xs font-medium hover:bg-blue-600 transition-colors"
+                  >
+                    <span>✈️</span>
+                    <span>Telegram</span>
+                  </motion.a>
+                  <motion.a
+                    href="https://calendly.com/kazakhdev"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center space-x-2 bg-purple-500 text-white px-3 py-2 rounded-lg text-xs font-medium hover:bg-purple-600 transition-colors"
+                  >
+                    <span>📅</span>
+                    <span>Schedule Call</span>
+                  </motion.a>
+                </div>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-white dark:bg-slate-800 rounded-lg p-3 text-center border border-slate-200 dark:border-slate-700">
+                  <div className="text-lg font-bold text-green-600 dark:text-green-400">50+</div>
+                  <div className="text-xs text-slate-600 dark:text-slate-400">Happy Clients</div>
+                </div>
+                <div className="bg-white dark:bg-slate-800 rounded-lg p-3 text-center border border-slate-200 dark:border-slate-700">
+                  <div className="text-lg font-bold text-blue-600 dark:text-blue-400">100%</div>
+                  <div className="text-xs text-slate-600 dark:text-slate-400">Success Rate</div>
+                </div>
+              </div>
+
+              {/* Security & Privacy */}
+              <div className="bg-slate-100 dark:bg-slate-800 rounded-lg p-3 text-center">
+                <div className="flex items-center justify-center space-x-2 mb-1">
+                  <span className="text-green-500">🔒</span>
+                  <span className="text-xs font-medium text-slate-700 dark:text-slate-300">
+                    Your information is secure & confidential
+                  </span>
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  We respect your privacy and never share your details with third parties
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Contact Information */}
@@ -483,12 +603,38 @@ const Contact = () => {
                   Our Location
                 </h4>
               </div>
-              <p className="text-slate-600 dark:text-slate-400 text-sm mb-2">
-                🇰🇿 Based in Kazakhstan
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                🇰🇿 Based in Almaty, Kazakhstan
               </p>
-              <p className="text-slate-600 dark:text-slate-400 text-sm">
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">
                 Serving clients globally across different time zones
               </p>
+              
+              {/* Google Map */}
+              <div className="w-full h-48 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.2543516346843!2d76.85128731549815!3d43.23810007913678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836e7d16c5cbab%3A0x3d44668a2be000b4!2sAlmaty%2C%20Kazakhstan!5e0!3m2!1sen!2s!4v1635789234567!5m2!1sen!2s"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Almaty, Kazakhstan Location"
+                  className="grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+              
+              <div className="mt-3 text-center">
+                <a
+                  href="https://www.google.com/maps/place/Almaty,+Kazakhstan/@43.2220146,76.8512119,11z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                >
+                  View larger map →
+                </a>
+              </div>
             </motion.div>
 
             {/* Response Time */}
@@ -514,6 +660,131 @@ const Contact = () => {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Additional Contact Information & CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            Ready to Start Your Project?
+          </h3>
+          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            Join 50+ satisfied clients who have transformed their ideas into successful digital products. 
+            Let's discuss how we can help you achieve your goals.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="text-2xl font-bold mb-1">24-48h</div>
+              <div className="text-blue-100 text-sm">Response Time</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="text-2xl font-bold mb-1">100%</div>
+              <div className="text-blue-100 text-sm">Client Satisfaction</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="text-2xl font-bold mb-1">Free</div>
+              <div className="text-blue-100 text-sm">Initial Consultation</div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.a
+              href="#estimator"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-blue-50 transition-all duration-300 flex items-center justify-center space-x-2"
+            >
+              <span>Get Instant Quote</span>
+              <ArrowRight className="w-4 h-4" />
+            </motion.a>
+            <motion.button
+              onClick={() => {
+                const email = 'team@kazakhdev.pro'
+                const subject = 'Project Inquiry from Portfolio'
+                const body = 'Hi Kazakhstan Dev Team,\n\nI visited your portfolio and I\'m interested in discussing a project. Could we schedule a call?\n\nBest regards,'
+                window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center space-x-2"
+            >
+              <span>Send Email</span>
+              <ArrowRight className="w-4 h-4" />
+            </motion.button>
+          </div>
+        </motion.div>
+
+        {/* Why Choose Us Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {[
+            {
+              icon: '🚀',
+              title: 'Fast Delivery',
+              description: '50% faster than industry average'
+            },
+            {
+              icon: '💎',
+              title: 'Premium Quality',
+              description: 'Enterprise-level code standards'
+            },
+            {
+              icon: '🌍',
+              title: 'Global Experience',
+              description: 'Clients across US, Europe & Asia'
+            },
+            {
+              icon: '🔧',
+              title: 'Full Support',
+              description: 'Ongoing maintenance & updates'
+            }
+          ].map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-slate-800 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="text-4xl mb-4">{feature.icon}</div>
+              <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-2">
+                {feature.title}
+              </h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Final CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <p className="text-slate-600 dark:text-slate-400 mb-6">
+            Have questions? We're here to help! Reach out and let's create something amazing together.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+            <span>🕐 Available Mon-Fri 9AM-6PM (GMT+6)</span>
+            <span>📧 team@kazakhdev.pro</span>
+            <span>📞 +7 (XXX) XXX-XXXX</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
