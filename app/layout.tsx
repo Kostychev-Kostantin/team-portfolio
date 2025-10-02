@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Kazakhstan Development Team - Full-Stack & AI/ML Experts',
+  title: 'Kostychev\'s Development Team - Full-Stack & AI/ML Experts',
   description: 'Professional development team from Kazakhstan specializing in Full-Stack development and AI/ML solutions. We deliver cutting-edge software solutions for global clients.',
   keywords: 'Kazakhstan developers, Full-Stack development, AI/ML, React, Next.js, Python, TypeScript, software development team',
   authors: [{ name: 'Kazakhstan Development Team' }],
@@ -22,6 +22,12 @@ export const metadata: Metadata = {
   },
   viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
+    shortcut: '/icon.png',
+  },
+  manifest: '/manifest.json',
 }
 
 export default function RootLayout({
