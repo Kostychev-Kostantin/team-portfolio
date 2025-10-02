@@ -62,8 +62,174 @@ const Testimonials = () => {
   ]
 
   return (
-    <section id="testimonials" className="section-padding bg-white dark:bg-slate-900">
-      <div className="container-max">
+    <section id="testimonials" className="section-padding relative overflow-hidden">
+      {/* Fantastic Animated Background */}
+      <div className="absolute inset-0">
+        {/* Base gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-slate-900 dark:via-indigo-900/20 dark:to-purple-900/20" />
+        
+        {/* Floating testimonial bubbles */}
+        {Array.from({ length: 12 }).map((_, i) => (
+          <motion.div
+            key={`bubble-${i}`}
+            animate={{
+              y: [0, -100, 0],
+              x: [0, 50 * Math.sin(i), 0],
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.3, 0.1],
+            }}
+            transition={{
+              duration: 15 + (i % 5),
+              repeat: Infinity,
+              delay: i * 1.2,
+              ease: "easeInOut"
+            }}
+            className="absolute w-20 h-20 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl"
+            style={{
+              left: `${10 + (i * 8) % 80}%`,
+              top: `${10 + (i * 12) % 70}%`,
+            }}
+          />
+        ))}
+        
+        {/* Floating quote symbols */}
+        {['"', '"', '❝', '❞', '💬', '⭐', '✨', '🌟'].map((symbol, i) => (
+          <motion.div
+            key={`quote-${i}`}
+            animate={{
+              y: [0, -80, 0],
+              rotate: [0, 360],
+              opacity: [0.1, 0.4, 0.1],
+            }}
+            transition={{
+              duration: 20 + (i % 6),
+              repeat: Infinity,
+              delay: i * 2,
+              ease: "easeInOut"
+            }}
+            className="absolute text-blue-400/30 dark:text-purple-400/30 text-6xl font-serif"
+            style={{
+              left: `${15 + (i * 11) % 70}%`,
+              top: `${20 + (i * 9) % 60}%`,
+            }}
+          >
+            {symbol}
+          </motion.div>
+        ))}
+        
+        {/* Animated connection lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 1000">
+          <motion.path
+            d="M100,200 Q300,100 500,200 T900,200"
+            stroke="url(#testimonialGradient1)"
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="10,5"
+            animate={{ strokeDashoffset: [0, 30] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.path
+            d="M100,400 Q300,300 500,400 T900,400"
+            stroke="url(#testimonialGradient2)"
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="8,4"
+            animate={{ strokeDashoffset: [0, 24] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.path
+            d="M100,600 Q300,500 500,600 T900,600"
+            stroke="url(#testimonialGradient3)"
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="12,6"
+            animate={{ strokeDashoffset: [0, 36] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+          />
+          <defs>
+            <linearGradient id="testimonialGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgb(59, 130, 246)" />
+              <stop offset="100%" stopColor="rgb(147, 51, 234)" />
+            </linearGradient>
+            <linearGradient id="testimonialGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgb(147, 51, 234)" />
+              <stop offset="100%" stopColor="rgb(236, 72, 153)" />
+            </linearGradient>
+            <linearGradient id="testimonialGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgb(236, 72, 153)" />
+              <stop offset="100%" stopColor="rgb(59, 130, 246)" />
+            </linearGradient>
+          </defs>
+        </svg>
+        
+        {/* Glowing orbs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.5, 1],
+            rotate: [0, 180, 360],
+            x: [0, 200, 0],
+            y: [0, -150, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-blue-400/15 to-purple-400/15 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [360, 180, 0],
+            x: [0, -150, 0],
+            y: [0, 100, 0],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-400/15 to-pink-400/15 rounded-full blur-3xl"
+        />
+        
+        {/* Particle stars */}
+        {Array.from({ length: 20 }).map((_, i) => (
+          <motion.div
+            key={`star-${i}`}
+            animate={{
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0],
+              rotate: [0, 180],
+            }}
+            transition={{
+              duration: 3 + (i % 4),
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: "easeInOut"
+            }}
+            className="absolute w-1 h-1 bg-blue-400 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+        
+        {/* Testimonial cards background effect */}
+        <motion.div
+          animate={{
+            opacity: [0.1, 0.3, 0.1],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent dark:via-slate-800/5"
+        />
+      </div>
+      <div className="container-max relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
