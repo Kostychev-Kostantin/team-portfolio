@@ -189,65 +189,171 @@ const About = () => {
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50, rotateX: -15 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              whileHover={{ 
+                y: -10, 
+                rotateX: 5, 
+                rotateY: 5,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              transition={{ duration: 0.8, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="bg-slate-50 dark:bg-slate-800 rounded-xl p-6 hover:shadow-xl transition-all duration-300 group"
+              className="group relative"
+              style={{ perspective: "1000px" }}
             >
-              <div className="flex items-start space-x-6">
-                {/* Photo placeholder */}
-                <div className="flex-shrink-0">
-                  {member.name === 'Kostychev Konstantin' ? (
-                    <div className="w-20 h-20 rounded-xl overflow-hidden shadow-lg group-hover:scale-105 transition-transform duration-300">
-                      <Image
-                        src="/kostychev.jpg"
-                        alt="Kostychev Konstantin"
-                        width={80}
-                        height={80}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg">
-                      <span className="text-white font-bold text-xl">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
-                  )}
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform scale-110" />
+              
+              {/* Main card */}
+              <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl p-8 border border-white/20 dark:border-slate-700/50 shadow-2xl group-hover:shadow-3xl transition-all duration-500 overflow-hidden">
+                
+                {/* Animated border effect */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 animate-pulse" />
                 </div>
                 
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  {/* Name first */}
-                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-1">
-                    {member.name}
-                  </h3>
-                  {/* Role second */}
-                  <h4 className="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-1">
-                    {member.role}
-                  </h4>
-                  {/* Experience */}
-                  <p className="text-slate-500 dark:text-slate-400 font-medium text-sm mb-3">
-                    {member.experience} experience
-                  </p>
-                  {/* Description */}
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">
-                    {member.description}
-                  </p>
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2">
-                    {member.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-xs font-medium"
+                {/* Floating particles */}
+                <div className="absolute inset-0 overflow-hidden rounded-2xl">
+                  {[...Array(8)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-1 h-1 bg-blue-400/60 rounded-full"
+                      style={{
+                        left: `${20 + (i * 10) % 60}%`,
+                        top: `${15 + (i * 13) % 70}%`,
+                      }}
+                      animate={{
+                        y: [0, -30, 0],
+                        opacity: [0, 1, 0],
+                        scale: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 3 + (i % 3),
+                        repeat: Infinity,
+                        delay: i * 0.4,
+                        ease: "easeInOut"
+                      }}
+                    />
+                  ))}
+                </div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start space-x-6">
+                    {/* Enhanced Photo Section */}
+                    <div className="flex-shrink-0 relative">
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ duration: 0.3 }}
+                        className="relative"
                       >
-                        {skill}
-                      </span>
-                    ))}
+                        {/* Glowing ring */}
+                        <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-0 group-hover:opacity-70 blur-md transition-opacity duration-500" />
+                        
+                        {member.name === 'Kostychev Konstantin' ? (
+                          <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-2xl border-4 border-white/50 dark:border-slate-600/50">
+                            <Image
+                              src="/kostychev.jpg"
+                              alt="Kostychev Konstantin"
+                              width={96}
+                              height={96}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                          </div>
+                        ) : (
+                          <div className="relative w-24 h-24 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-2xl border-4 border-white/50 dark:border-slate-600/50">
+                            <span className="text-white font-bold text-2xl">
+                              {member.name.split(' ').map(n => n[0]).join('')}
+                            </span>
+                          </div>
+                        )}
+                        
+                        {/* Status indicator */}
+                        <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-white dark:border-slate-800 shadow-lg">
+                          <div className="w-full h-full bg-green-400 rounded-full animate-ping" />
+                        </div>
+                      </motion.div>
+                    </div>
+                    
+                    {/* Enhanced Content */}
+                    <div className="flex-1 min-w-0">
+                      {/* Name with typing animation effect */}
+                      <motion.h3 
+                        className="text-2xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-200 dark:to-slate-400 bg-clip-text text-transparent mb-2"
+                        whileHover={{ scale: 1.02 }}
+                      >
+                        {member.name}
+                      </motion.h3>
+                      
+                      {/* Role with animated underline */}
+                      <div className="relative mb-2">
+                        <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400">
+                          {member.role}
+                        </h4>
+                        <motion.div 
+                          className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "100%" }}
+                          transition={{ duration: 0.8, delay: index * 0.2 }}
+                        />
+                      </div>
+                      
+                      {/* Experience badge */}
+                      <motion.div 
+                        className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 px-3 py-1 rounded-full mb-4"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                        <span className="text-sm font-medium text-green-700 dark:text-green-300">
+                          {member.experience} experience
+                        </span>
+                      </motion.div>
+                      
+                      {/* Description */}
+                      <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 leading-relaxed">
+                        {member.description}
+                      </p>
+                      
+                      {/* Enhanced Skills */}
+                      <div className="space-y-2 mb-6">
+                        <h5 className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                          Core Technologies
+                        </h5>
+                        <div className="flex flex-wrap gap-2">
+                          {member.skills.map((skill, skillIndex) => (
+                            <motion.span
+                              key={skill}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              whileHover={{ 
+                                scale: 1.1, 
+                                backgroundColor: "rgb(59 130 246 / 0.2)",
+                                transition: { duration: 0.2 }
+                              }}
+                              transition={{ 
+                                duration: 0.4, 
+                                delay: index * 0.1 + skillIndex * 0.05 
+                              }}
+                              className="px-3 py-1.5 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-medium border border-slate-200 dark:border-slate-600 shadow-sm cursor-pointer"
+                            >
+                              {skill}
+                            </motion.span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  
+                  {/* Bottom accent line */}
+                  {/* <motion.div 
+                    className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    layoutId={`accent-${index}`}
+                  /> */}
                 </div>
               </div>
+              
+              {/* Reflection effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </motion.div>
           ))}
         </motion.div>
