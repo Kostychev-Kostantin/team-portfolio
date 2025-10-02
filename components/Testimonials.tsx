@@ -15,7 +15,7 @@ const Testimonials = () => {
       company: 'FinTech Innovations LLC',
       location: 'New York, USA',
       rating: 5,
-      quote: "The Kazakhstan team exceeded all our expectations. Their AI trading engine not only met our technical requirements but delivered results that transformed our business. The 94% accuracy rate and 340% revenue increase speak for themselves. Their communication was excellent throughout the project, and they delivered on time despite the complexity.",
+      quote: "Kostychev's team exceeded all our expectations. Their AI trading engine not only met our technical requirements but delivered results that transformed our business. The 94% accuracy rate and 340% revenue increase speak for themselves. Their communication was excellent throughout the project, and they delivered on time despite the complexity.",
       project: 'AI-Powered Trading Engine',
       avatar: 'SJ',
     },

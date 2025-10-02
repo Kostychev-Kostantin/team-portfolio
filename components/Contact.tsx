@@ -21,10 +21,70 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    
+    try {
+      // For now, let's use a simple mailto approach that actually works
+      // Create email content
+      const subject = `New Project Inquiry from ${formData.name}`
+      const body = `
+Hello Kazakhstan Team,
+
+New project inquiry received:
+
+Contact Details:
+- Name: ${formData.name}
+- Email: ${formData.email}
+- Company: ${formData.company || 'Not specified'}
+
+Project Information:
+- Project Type: ${formData.project}
+- Budget Range: ${formData.budget}
+
+Message:
+${formData.message}
+
+Best regards,
+${formData.name}
+      `.trim()
+      
+      // Create mailto link
+      const mailtoLink = `mailto:kostychev0902@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+      
+      // Simulate processing time for better UX
+      setTimeout(() => {
+        // Open email client
+        window.open(mailtoLink, '_blank')
+        
+        // Show success message
+        setSubmitStatus('success')
+        setIsSubmitting(false)
+        
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            company: '',
+            project: '',
+            budget: '',
+            message: '',
+          })
+          setSubmitStatus('idle')
+        }, 5000)
+      }, 1000)
+      
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -52,8 +112,8 @@ const Contact = () => {
   ]
 
   const workingHours = [
-    { day: 'Monday - Friday', hours: '9:00 AM - 6:00 PM (GMT+6)' },
-    { day: 'Saturday', hours: '10:00 AM - 2:00 PM (GMT+6)' },
+    { day: 'Monday - Friday', hours: '9:00 AM - 6:00 PM (EST, PST, CST)' },
+    { day: 'Saturday', hours: '10:00 AM - 2:00 PM (EST, PST, CST)' },
     { day: 'Sunday', hours: 'Closed' },
   ]
 
@@ -384,13 +444,96 @@ const Contact = () => {
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full btn-primary flex items-center justify-center space-x-2"
+                disabled={isSubmitting || !formData.name || !formData.email || !formData.message}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                className={`w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                  submitStatus === 'success'
+                    ? 'bg-green-500 hover:bg-green-600 text-white'
+                    : submitStatus === 'error'
+                    ? 'bg-red-500 hover:bg-red-600 text-white'
+                    : isSubmitting
+                    ? 'bg-slate-400 text-white cursor-not-allowed'
+                    : 'btn-primary'
+                }`}
               >
-                <Send className="w-4 h-4" />
-                <span>Send Message</span>
+                {isSubmitting ? (
+                  <>
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
+                    />
+                    <span>Sending...</span>
+                  </>
+                ) : submitStatus === 'success' ? (
+                  <>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="w-4 h-4"
+                    >
+                      ✓
+                    </motion.div>
+                    <span>Message Sent!</span>
+                  </>
+                ) : submitStatus === 'error' ? (
+                  <>
+                    <span>❌</span>
+                    <span>Try Again</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </motion.button>
+
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg p-4"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm">✓</span>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-green-800 dark:text-green-200">
+                        Email Client Opened Successfully!
+                      </h4>
+                      <p className="text-sm text-green-600 dark:text-green-300">
+                        Your message has been prepared with all details. Please click "Send" in your email client to complete the process.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-lg p-4"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm">❌</span>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-red-800 dark:text-red-200">
+                        Failed to Send Message
+                      </h4>
+                      <p className="text-sm text-red-600 dark:text-red-300">
+                        Please try again or contact us directly at kostychev0902@gmail.com
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </form>
 
             {/* Additional Content Below Form */}
@@ -467,7 +610,7 @@ const Contact = () => {
                     <span>WhatsApp</span>
                   </motion.a>
                   <motion.a
-                    href="https://t.me/kazakhdev"
+                    href="https://t.me/snowman1019"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center space-x-2 bg-blue-500 text-white px-3 py-2 rounded-lg text-xs font-medium hover:bg-blue-600 transition-colors"

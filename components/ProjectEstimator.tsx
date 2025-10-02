@@ -57,14 +57,14 @@ const ProjectEstimator = () => {
   ]
 
   const featureOptions = [
-    { id: 'auth', name: 'User Authentication', cost: 3500, time: 1.5 },
-    { id: 'payment', name: 'Payment Integration', cost: 5000, time: 2.0 },
-    { id: 'admin', name: 'Admin Dashboard', cost: 8000, time: 3.0 },
-    { id: 'api', name: 'REST API', cost: 6000, time: 2.5 },
-    { id: 'realtime', name: 'Real-time Features', cost: 9000, time: 3.5 },
-    { id: 'ai', name: 'AI Integration', cost: 15000, time: 4.0 },
-    { id: 'mobile', name: 'Mobile Responsive', cost: 4000, time: 2.0 },
-    { id: 'analytics', name: 'Analytics Dashboard', cost: 7500, time: 3.0 }
+    { id: 'auth', name: 'User Authentication', cost: 3500, time: 1.0 },
+    { id: 'payment', name: 'Payment Integration', cost: 5000, time: 1.5 },
+    { id: 'admin', name: 'Admin Dashboard', cost: 8000, time: 2.0 },
+    { id: 'api', name: 'REST API', cost: 6000, time: 1.5 },
+    { id: 'realtime', name: 'Real-time Features', cost: 9000, time: 2.5 },
+    { id: 'ai', name: 'AI Integration', cost: 15000, time: 3.0 },
+    { id: 'mobile', name: 'Mobile Responsive', cost: 4000, time: 1.0 },
+    { id: 'analytics', name: 'Analytics Dashboard', cost: 7500, time: 2.0 }
   ]
 
   const calculateEstimate = () => {
@@ -85,8 +85,8 @@ const ProjectEstimator = () => {
       const featureCost = selectedFeatures.reduce((sum, feature) => sum + feature.cost, 0)
       const totalCost = (baseCost + featureCost) * projectType.multiplier * complexity.multiplier
 
-      // Time calculation - Realistic timelines for quality delivery
-      const baseTime = 8 // weeks - Realistic timeline for quality work
+      // Base time calculation - Competitive timeline for fast delivery
+      const baseTime = 4 // weeks - Competitive timeline for quality work
       const featureTime = selectedFeatures.reduce((sum, feature) => sum + feature.time, 0)
       const totalTime = Math.ceil((baseTime + featureTime) * projectType.multiplier * complexity.multiplier)
 
@@ -230,23 +230,23 @@ const ProjectEstimator = () => {
         >
           <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full mb-6">
             <Calculator className="w-4 h-4" />
-            <span className="text-sm font-medium">Professional Quality Pricing 💎</span>
+            <span className="text-sm font-medium">Fast Delivery & Competitive Pricing ⚡</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="gradient-text">Get Instant Project Estimate</span>
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-4">
             Our AI analyzes your requirements and provides accurate cost, timeline, and technology recommendations 
-            in seconds. <strong>Enterprise-quality development</strong> with transparent, competitive pricing.
+            in seconds. <strong>Fast delivery & competitive pricing</strong> with enterprise-quality development.
           </p>
           <div className="flex items-center justify-center space-x-8 text-sm text-slate-600 dark:text-slate-400">
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>Premium quality code</span>
+              <span>Fast delivery</span>
             </div>
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-              <span>Transparent pricing</span>
+              <span>Competitive pricing</span>
             </div>
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 bg-purple-500 rounded-full"></span>

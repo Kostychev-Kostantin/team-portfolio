@@ -158,7 +158,7 @@ const Footer = () => {
                 <span className="text-xl font-bold gradient-text">DevTeam</span>
               </div>
               <p className="text-slate-300 mb-6 leading-relaxed max-w-md">
-                Elite development team from Kazakhstan specializing in Full-Stack development and AI/ML solutions. 
+                Kostychev's Elite development team from Kazakhstan specializing in Full-Stack development and AI/ML solutions. 
                 We transform ideas into powerful digital experiences for clients worldwide.
               </p>
               <div className="flex items-center space-x-4">
@@ -223,7 +223,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex justify-center space-x-6 mb-8"
           >
-            {socialLinks.map((social, index) => (
+            {/* {socialLinks.map((social, index) => (
               <motion.a
                 key={social.label}
                 href={social.href}
@@ -236,7 +236,7 @@ const Footer = () => {
               >
                 <social.icon className="w-5 h-5" />
               </motion.a>
-            ))}
+            ))} */}
           </motion.div>
 
           {/* Bottom Bar */}

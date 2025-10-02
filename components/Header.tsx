@@ -40,17 +40,19 @@ const Header = () => {
       <div className="container-max">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <motion.div
+          <motion.a
+            href="#hero"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 cursor-pointer hover:scale-105 transition-transform duration-300"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-accent-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">KZ</span>
             </div>
             <span className="text-xl font-bold gradient-text">DevTeam</span>
-          </motion.div>
+          </motion.a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

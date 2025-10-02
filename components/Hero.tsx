@@ -11,7 +11,7 @@ const Hero = () => {
   ]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-blue-900/20 dark:to-indigo-900/20" />
       
@@ -156,7 +156,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
         >
-          <span className="gradient-text">Elite Development</span>
+          <span className="gradient-text">Kostychev's Elite Development</span>
           <br />
           <span className="text-slate-800 dark:text-slate-200">Team</span>
         </motion.h1>
@@ -169,8 +169,8 @@ const Hero = () => {
           className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-3xl mx-auto leading-relaxed"
         >
           We're a passionate team of Senior Full-Stack and AI/ML developers from Kazakhstan, 
-          delivering cutting-edge software solutions for global clients. From complex web applications 
-          to intelligent AI systems, we transform ideas into reality.
+          featuring <strong className="text-purple-600 dark:text-purple-400">Arc.dev certified elite developers</strong> (top 2% globally). 
+          We deliver cutting-edge software solutions for global clients, transforming ideas into reality.
         </motion.p>
 
         {/* Tech Stack Pills */}
